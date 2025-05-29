@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Challenge_7_Merge_1App: App {
+struct MicMare: App {
     var body: some Scene {
         WindowGroup {
             SplashView()

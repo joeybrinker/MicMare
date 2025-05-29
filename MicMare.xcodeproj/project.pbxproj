@@ -11,13 +11,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		691487F32DD37883005802C2 /* Challenge 7 Merge 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge 7 Merge 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		691487F32DD37883005802C2 /* MicMare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicMare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		691487F52DD37883005802C2 /* Challenge 7 Merge 1 */ = {
+		691487F52DD37883005802C2 /* MicMare */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Challenge 7 Merge 1";
+			path = MicMare;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -37,7 +37,7 @@
 		691487EA2DD37883005802C2 = {
 			isa = PBXGroup;
 			children = (
-				691487F52DD37883005802C2 /* Challenge 7 Merge 1 */,
+				691487F52DD37883005802C2 /* MicMare */,
 				691487F42DD37883005802C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		691487F42DD37883005802C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				691487F32DD37883005802C2 /* Challenge 7 Merge 1.app */,
+				691487F32DD37883005802C2 /* MicMare.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,9 +53,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		691487F22DD37883005802C2 /* Challenge 7 Merge 1 */ = {
+		691487F22DD37883005802C2 /* MicMare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 691487FE2DD37885005802C2 /* Build configuration list for PBXNativeTarget "Challenge 7 Merge 1" */;
+			buildConfigurationList = 691487FE2DD37885005802C2 /* Build configuration list for PBXNativeTarget "MicMare" */;
 			buildPhases = (
 				691487EF2DD37883005802C2 /* Sources */,
 				691487F02DD37883005802C2 /* Frameworks */,
@@ -66,14 +66,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				691487F52DD37883005802C2 /* Challenge 7 Merge 1 */,
+				691487F52DD37883005802C2 /* MicMare */,
 			);
-			name = "Challenge 7 Merge 1";
+			name = MicMare;
 			packageProductDependencies = (
 				695DD01B2DDF4F1B00CF3DE8 /* Lottie */,
 			);
 			productName = "Challenge 7 Merge 1";
-			productReference = 691487F32DD37883005802C2 /* Challenge 7 Merge 1.app */;
+			productReference = 691487F32DD37883005802C2 /* MicMare.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -91,7 +91,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 691487EE2DD37883005802C2 /* Build configuration list for PBXProject "Challenge 7 Merge 1" */;
+			buildConfigurationList = 691487EE2DD37883005802C2 /* Build configuration list for PBXProject "MicMare" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -108,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				691487F22DD37883005802C2 /* Challenge 7 Merge 1 */,
+				691487F22DD37883005802C2 /* MicMare */,
 			);
 		};
 /* End PBXProject section */
@@ -314,7 +314,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		691487EE2DD37883005802C2 /* Build configuration list for PBXProject "Challenge 7 Merge 1" */ = {
+		691487EE2DD37883005802C2 /* Build configuration list for PBXProject "MicMare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				691487FC2DD37885005802C2 /* Debug */,
@@ -323,7 +323,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		691487FE2DD37885005802C2 /* Build configuration list for PBXNativeTarget "Challenge 7 Merge 1" */ = {
+		691487FE2DD37885005802C2 /* Build configuration list for PBXNativeTarget "MicMare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				691487FF2DD37885005802C2 /* Debug */,
