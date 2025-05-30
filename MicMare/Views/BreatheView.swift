@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct BreatheView: View {
     
@@ -30,11 +31,13 @@ struct BreatheView: View {
         (maxCircleSize - defaultSize) / CGFloat(timerSequence[currentSequenceIndex] + 1) * frameRate
     }
     
-    // Create a timer that publishes every second
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//    // Create a timer that publishes every second
+//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//    
+//    let animationTimer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
-    let animationTimer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
-    
+    @State private var timerCancellable: AnyCancellable?
+    @State private var animationCancellable: AnyCancellable?
     
     // Initialize with the first countdown value
     init(){
@@ -77,12 +80,14 @@ struct BreatheView: View {
                     HStack{
                         Button {
                             if timerRunning {
+                                stopTimers()
                                 resetTimer()
                                 circle = defaultSize
                             }
                             else {
                                 //Start Timer
                                 timerRunning.toggle()
+                                startTimers()
                             }
                         } label: {
                             ZStack {
@@ -120,6 +125,7 @@ struct BreatheView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
+                    stopTimers()
                     dismiss()
                 } label: {
                     ZStack{
@@ -133,22 +139,62 @@ struct BreatheView: View {
                 }
             }
         }
-        .onReceive(timer) { _ in
-            updateTimer()
+//        .onReceive(timer) { _ in
+//            updateTimer()
+//        }
+//        .onReceive(animationTimer) { _ in
+//            // Per Frame
+//            guard timerRunning else { return }
+//            
+//            if circle < maxCircleSize && currentSequenceIndex == 0 {
+//                circle += growthRate
+//            }
+//            if currentSequenceIndex == 2 {
+//                if circle > defaultSize {
+//                    circle -= growthRate
+//                }
+//            }
+//        }
+        .onAppear {
+            resetTimer()
+            circle = defaultSize
         }
-        .onReceive(animationTimer) { _ in
-            // Per Frame
-            guard timerRunning else { return }
-            
-            if circle < maxCircleSize && currentSequenceIndex == 0 {
-                circle += growthRate
+        .onDisappear {
+            stopTimers()
+        }
+
+    }
+    
+    private func startTimers() {
+        // Start the 1-second countdown timer
+        timerCancellable = Timer.publish(every: 1, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                updateTimer()
             }
-            if currentSequenceIndex == 2 {
-                if circle > defaultSize {
-                    circle -= growthRate
+        
+        // Start the animation timer (60fps)
+        animationCancellable = Timer.publish(every: 0.01, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                guard timerRunning else { return }
+                
+                if circle < maxCircleSize && currentSequenceIndex == 0 {
+                    circle += growthRate
+                }
+                if currentSequenceIndex == 2 {
+                    if circle > defaultSize {
+                        circle -= growthRate
+                    }
                 }
             }
-        }
+    }
+
+    private func stopTimers() {
+        timerCancellable?.cancel()
+        animationCancellable?.cancel()
+        timerCancellable = nil
+        animationCancellable = nil
     }
     
     private func updateTimer() {
@@ -171,10 +217,12 @@ struct BreatheView: View {
     }
     
     private func resetTimer() {
+        stopTimers()  // Add this line
         timerRunning = false
         currentSequenceIndex = 0
         timeRemaining = timerSequence[0]
         sequenceCompleted = false
+        circle = defaultSize  // Add this line to ensure circle resets
     }
 }
 
