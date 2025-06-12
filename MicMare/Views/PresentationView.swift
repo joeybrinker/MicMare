@@ -11,6 +11,7 @@ struct PresentationView: View {
     @State var presentation = presentations.presentations.randomElement()
     @State var showNextScreen = false
     @State private var showSplashScreen: Bool = true
+    @State var showAudience = true
     
     @State var timePresenting: Int = 0
     
@@ -29,31 +30,33 @@ struct PresentationView: View {
                 Color.backgroundGray
                     .ignoresSafeArea()
                 VStack{
-                    
-                    presentationView
-                    
-                    Text("\(timePresenting)")
-                        .foregroundStyle(.white)
-                    
                     Spacer()
                     
-                    ZStack{
-                        
-                        stage
-                        
-                        buttons
-                            .font(.title)
-                            .padding(.horizontal)
-                    }
-                    .ignoresSafeArea()
+                    audience
+                    
+                    stage
                 }
-                .ignoresSafeArea(.all)
-                .padding(.top)
+                    .ignoresSafeArea(.container)
+                    .padding(.top)
+                    
                 
                 if presentationIndex == throwIndex {
-                    LottieView(name: "tomato", isVisible: $throwTomato)
+                    LottieView(name: "tomato", loopMode: .playOnce, isVisible: $throwTomato)
                         .frame(width: 400, height: 400)
                 }
+                
+                Triangle()
+                    .fill(LinearGradient(colors: [.spotlightTop, .spotlightBottom], startPoint: .top, endPoint: .bottom).opacity(0.3))
+                    .blur(radius: 7)
+                
+                VStack{
+                    presentationView
+                    Spacer()
+                    buttons
+                        .font(.title)
+                        .padding(.horizontal)
+                }
+
             }
             .onReceive(timer) { _ in
                 timePresenting += 1
@@ -97,6 +100,16 @@ struct PresentationView: View {
             .frame(maxWidth: 350, maxHeight: 200)
         }
     }
+    
+    private var audience: some View {
+        HStack(spacing: 0){
+            LottieView(name: "girl-lottie", loopMode: .loop, isVisible: $showAudience)
+            LottieView(name: "boy1", loopMode: .loop, isVisible: $showAudience)
+        }
+        .frame(height: 300)
+    }
+    
+    
     
     private var buttons: some View {
         HStack {
@@ -152,7 +165,7 @@ struct PresentationView: View {
     }
     
     func getThrowIndex() -> Int {
-        return Int.random(in: 1..<presentation!.slides.count)
+        return Int.random(in: 2..<presentation!.slides.count)
     }
 }
 

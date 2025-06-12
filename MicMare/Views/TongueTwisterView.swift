@@ -23,15 +23,17 @@ struct TongueTwisterView: View {
                     
                     Text("Tongue Twisters")
                         .foregroundStyle(.backgroundGold)
-                        .font(Font.custom("SF Compact Display", size: 35).weight(.bold))
+                        .font(.system(size: 35))
+                        .fontWeight(.bold)
                         
                     Text("Repeat 5 times")
                         .foregroundStyle(.backgroundGold)
-                        .font(Font.custom("SF Compact Display", size: 35))
+                        .font(.system(size: 35))
                         .fontWeight(.bold)
                     
                     Text(text)
-                        .font(Font.custom("SF Compact Display", size: 48).weight(.medium))
+                        .font(.system(size: 48))
+                        .fontWeight(.medium)
                         .foregroundStyle(.white)
                         .frame(width: 300, height: 350)
                         .multilineTextAlignment(.center)

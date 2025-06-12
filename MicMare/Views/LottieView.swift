@@ -11,7 +11,7 @@ import Lottie
 
 struct LottieView: UIViewRepresentable {
     var name: String
-    var loopMode: LottieLoopMode = .playOnce // Changed default to play once
+    var loopMode: LottieLoopMode // Changed default to play once
     var animationSpeed: CGFloat = 1.0
     var contentMode: UIView.ContentMode = .scaleAspectFit
     @Binding var isVisible: Bool // Add binding to control visibility

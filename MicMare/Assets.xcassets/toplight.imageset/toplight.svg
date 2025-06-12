@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="427px" height="829px" viewBox="0 0 427 829" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path 6 Copy 2</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="131.421088%" id="linearGradient-1">
+            <stop stop-color="#ECB465" offset="0%"></stop>
+            <stop stop-color="#FDF8F4" offset="100%"></stop>
+            <stop stop-color="#FDF8F4" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-14.5%" y="-6.6%" width="129.1%" height="113.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="16" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.395600818">
+        <polygon id="Path-6-Copy-2" fill="url(#linearGradient-1)" filter="url(#filter-2)" points="48.3309609 779.914591 212.427947 48 378.52669 780.379004"></polygon>
+    </g>
+</svg>

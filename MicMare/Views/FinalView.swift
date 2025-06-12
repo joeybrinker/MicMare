@@ -22,7 +22,8 @@ struct FinalView: View {
                     
                     Text("Results")
                         .foregroundStyle(.textBlue)
-                        .font(Font.custom("SF Compact Display", size: 35) .weight(.bold))
+                        .font(.system(size: 35))
+                        .fontWeight(.bold)
 
                     Text("SEE!!!!\nThat wasn’t that bad right?\nYou got through it!")
                         .foregroundStyle(.stageRed)

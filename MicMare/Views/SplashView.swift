@@ -15,7 +15,7 @@ struct SplashView: View {
         Color.backgroundGray
         .ignoresSafeArea()
             if showSplash {
-                LottieView(name: "duckintro2", isVisible: $showSplash)
+                LottieView(name: "duckintro2", loopMode: .playOnce, isVisible: $showSplash)
          .onAppear {
                         // Change the splash state after 2 seconds
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {

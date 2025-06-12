@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="451px" height="917px" viewBox="0 0 451 917" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 31</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="131.421088%" id="linearGradient-1">
+            <stop stop-color="#ECB465" offset="0%"></stop>
+            <stop stop-color="#FDF8F4" offset="100%"></stop>
+            <stop stop-color="#FDF8F4" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-14.5%" y="-6.6%" width="129.1%" height="113.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="16" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="131.421088%" id="linearGradient-3">
+            <stop stop-color="#ECB465" offset="0%"></stop>
+            <stop stop-color="#FDF8F4" offset="100%"></stop>
+            <stop stop-color="#FDF8F4" offset="100%"></stop>
+        </linearGradient>
+        <ellipse id="path-4" cx="165.097865" cy="754.663701" rx="165.097865" ry="54.3362989"></ellipse>
+        <filter x="-18.2%" y="-55.2%" width="136.3%" height="210.4%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="20" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-18.8%" y="-57.1%" width="137.6%" height="214.1%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-31" transform="translate(60.4733, 48)">
+            <polygon id="Path-6-Copy-3" fill="url(#linearGradient-1)" opacity="0.395600818" filter="url(#filter-2)" points="1.85765125 731.914591 165.954637 0 332.053381 732.379004"></polygon>
+            <g id="Oval-Copy-11" opacity="0.850376674" filter="url(#filter-5)">
+                <use fill="url(#linearGradient-3)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-4"></use>
+            </g>
+        </g>
+    </g>
+</svg>
