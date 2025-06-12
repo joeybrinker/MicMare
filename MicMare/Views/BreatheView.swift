@@ -173,7 +173,7 @@ struct BreatheView: View {
                 .frame(width: 120, height: 60)
                 .foregroundStyle(.white)
             
-            NavigationLink("Continue", destination: PresentationView())
+            NavigationLink("Next", destination: PresentationView())
                 .onTapGesture {
                     resetTimer()
                 }

@@ -14,21 +14,17 @@ struct ContentView: View {
                 Color.backgroundGray
                     .ignoresSafeArea()
                 
-                VStack{
-                    Text("Pull for your challenge")
-                        .foregroundStyle(.textGold)
-                        .font(.system(size: 25))
-                        .fontWeight(.bold)
-                        .padding()
-                    
-                    
+                VStack(spacing: 0){
+                    Image("PullForChallenge")
+                        .padding(.top)
+                        
                     SlotMachineView() {
                         navigateToBreathe = true
                     }
                     .frame(width: 500, height: 300)
                     
                     Spacer()
-                        .frame(height: 200)
+                        .frame(height: 50)
                     
                     NavigationLink(destination: TongueTwisterView()) {
                         ZStack{
@@ -41,38 +37,16 @@ struct ContentView: View {
                         }
                     }
                     
-                    // Add navigation link to BreatheView that activates when the video finishes
+                    Spacer()
+
                     NavigationLink(destination: BreatheView(), isActive: $navigateToBreathe) {
                         EmptyView()
-                    }
+                    }   
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
     }
-    
-//    func setupPlayerCompletion() {
-//        removeObserver()
-//        
-//        NotificationCenter.default.addObserver(
-//            forName: .AVPlayerItemDidPlayToEndTime,
-//            object: player.currentItem,
-//            queue: .main
-//        ) { _ in
-//            // When video finishes
-//            isFinished = true
-//            // Trigger navigation to BreatheView
-//            navigateToBreathe = true
-//        }
-//    }
-//        
-//    func removeObserver() {
-//        NotificationCenter.default.removeObserver(
-//            self,
-//            name: .AVPlayerItemDidPlayToEndTime,
-//            object: player.currentItem
-//        )
-//    }
 }
 
 #Preview {

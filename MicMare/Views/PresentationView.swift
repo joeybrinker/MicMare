@@ -21,6 +21,10 @@ struct PresentationView: View {
     
     @State var throwIndex = 1
     
+    // Audio recording
+    @StateObject private var audioRecorder = AudioRecorder()
+    @State private var hasRecording = false
+    
     // Create a timer that publishes every second
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -48,10 +52,26 @@ struct PresentationView: View {
                 Triangle()
                     .fill(LinearGradient(colors: [.spotlightTop, .spotlightBottom], startPoint: .top, endPoint: .bottom).opacity(0.3))
                     .blur(radius: 7)
-                
+
                 VStack{
                     presentationView
+                    
+                    // Recording indicator
+                    if audioRecorder.isRecording {
+                        HStack {
+                            Circle()
+                                .fill(Color.red)
+                                .frame(width: 12, height: 12)
+                                .opacity(0.8)
+                            Text("Recording...")
+                                .foregroundColor(.red)
+                                .font(.caption)
+                                .fontWeight(.medium)
+                        }
+                        .padding(.top, 10)
+                    }
                     Spacer()
+
                     buttons
                         .font(.title)
                         .padding(.horizontal)
@@ -67,6 +87,31 @@ struct PresentationView: View {
                 presentation = presentations.presentations.randomElement()
                 throwIndex = getThrowIndex()
             }
+            .onDisappear {
+                // Clean up recording if user leaves the view
+                if audioRecorder.isRecording {
+                    audioRecorder.stopRecording()
+                }
+            }
+        }
+    }
+    
+    private var recordingButton: some View {
+        Button(action: {
+            if audioRecorder.isRecording {
+                audioRecorder.stopRecording()
+                hasRecording = true
+            } else {
+                audioRecorder.startRecording()
+                hasRecording = false
+            }
+        }) {
+            Image(systemName: audioRecorder.isRecording ? "stop.circle.fill" : "mic.circle.fill")
+                .font(.system(size: 60))
+                .foregroundColor(.white)
+
+                .frame(width: 100)
+                
         }
     }
     
@@ -109,8 +154,6 @@ struct PresentationView: View {
         .frame(height: 300)
     }
     
-    
-    
     private var buttons: some View {
         HStack {
             Button {
@@ -125,6 +168,11 @@ struct PresentationView: View {
                 }
             }
             .disabled(presentationIndex == 0)
+            
+            Spacer()
+            
+            // Recording button
+            recordingButton
             
             Spacer()
             
@@ -149,10 +197,13 @@ struct PresentationView: View {
                         .frame(width: 100, height: 40)
                         .foregroundStyle(.white)
                     
-                    NavigationLink("Finish", destination: FinalView(timePassed: timePresenting))
-                        .foregroundStyle(.backgroundGray)
-                        .font(.system(size: 20).weight(.bold))
-                        .frame(width: 100, height: 40)
+                    NavigationLink("Finish", destination: FinalView(
+                        timePassed: timePresenting,
+                        recordingURL: hasRecording ? audioRecorder.recordingURL : nil
+                    ))
+                    .foregroundStyle(.backgroundGray)
+                    .font(.system(size: 20).weight(.bold))
+                    .frame(width: 100, height: 40)
                 }
             }
         }
