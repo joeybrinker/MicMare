@@ -117,7 +117,6 @@ struct PresentationView: View {
     
     private var presentationView: some View{
         ZStack{
-            
             RoundedRectangle(cornerRadius: 28)
                 .foregroundStyle(.backgroundPresentation)
                 .frame(width: 350, height: 200)

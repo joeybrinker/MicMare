@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // Practice slide template
-let practiceSlide = Slide(title: "Practice", content: "Read aloud like you are actually presenting to a crowd")
+let practiceSlide = Slide(title: "Practice", content: "Read aloud like you are actually presenting to a crowd\nMake sure to stop the recording before finishing!")
 
 // PRESENTATION 1: Bananas Are Berries?!
 let p1s1 = Slide(title: "Bananas Are Berries?", content: "Yes! Botanically, they are berries.\nThey develop from a single flower with one ovary.")
