@@ -5,6 +5,7 @@ struct ContentView: View {
     @State private var isFinished = false
     @State private var timeObserverToken: Any?
     @State private var navigateToBreathe = false
+    @State private var showSheet = false
     
     @State var isAnimating: Bool = false
     
@@ -17,7 +18,7 @@ struct ContentView: View {
                 VStack(spacing: 0){
                     Image("PullForChallenge")
                         .padding(.top)
-                        
+                    
                     SlotMachineView() {
                         navigateToBreathe = true
                     }
@@ -25,23 +26,34 @@ struct ContentView: View {
                     
                     Spacer()
                         .frame(height: 50)
-                    
-                    NavigationLink(destination: TongueTwisterView()) {
-                        ZStack{
-                            Capsule()
-                                .frame(width: 180, height: 60)
-                                .foregroundStyle(.textGold)
-                            Text("Warm Up?")
-                                .font(.system(size: 20).weight(.bold))
-                                .foregroundStyle(.black)
+                    VStack {
+                        NavigationLink(destination: TongueTwisterView()) {
+                            ZStack{
+                                Capsule()
+                                    .frame(width: 180, height: 60)
+                                    .foregroundStyle(.textGold)
+                                Text("Warm Up?")
+                                    .font(.system(size: 20).weight(.bold))
+                                    .foregroundStyle(.black)
+                            }
                         }
+                        Button {
+                            showSheet.toggle()
+                        } label: {
+                            Image("questionMark")
+                            
+                        }
+                        .padding()
+                    }
+                    .sheet(isPresented: $showSheet) {
+                        InfoSheetView()
+                            .presentationDragIndicator(.visible)
                     }
                     
-                    Spacer()
-
+                    
                     NavigationLink(destination: BreatheView(), isActive: $navigateToBreathe) {
                         EmptyView()
-                    }   
+                    }
                 }
             }
         }
