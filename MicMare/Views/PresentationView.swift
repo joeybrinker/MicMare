@@ -147,11 +147,30 @@ struct PresentationView: View {
     }
     
     private var audience: some View {
-        HStack(spacing: 0){
-            LottieView(name: "girl-lottie", loopMode: .loop, isVisible: $showAudience)
-            LottieView(name: "boy1", loopMode: .loop, isVisible: $showAudience)
+        VStack(spacing: -150){
+            HStack(spacing: 0){
+                LottieView(name: "girl-lottie", loopMode: .loop, isVisible: $showAudience)
+                LottieView(name: "character2 (1)", loopMode: .loop, isVisible: $showAudience)
+                LottieView(name: "boy1", loopMode: .loop, isVisible: $showAudience)
+            }
+            .frame(height: 300)
+            
+            HStack(spacing: 70) {
+                Image("Asset 11")
+                    .resizable()
+                    .frame(width: 70,height: 200)
+                            
+                Image("Asset 12")
+                    .resizable()
+                    .frame(width: 70,height: 200)
+                            
+                Image("Asset 14")
+                    .resizable()
+                    .frame(width: 70, height: 200)
+            
+            }
+            .padding()
         }
-        .frame(height: 300)
     }
     
     private var buttons: some View {
